@@ -1,20 +1,20 @@
-import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { LIST_DATA } from '../data'
 import { sleep } from '../utils/sleep'
 import 'swiper/css'
+import LoadingView from '../components/loading-view'
+import { ErrorView } from '../components/error-view'
 
 async function getDetail(id: string) {
-  await sleep()
+  await sleep(1000)
   return LIST_DATA.find(item => item.id === Number(id))
 }
 
 export function Detail() {
   const { id } = useParams()
-
-  const { data, loading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['detail', id],
     queryFn: () => getDetail(id!),
   })
@@ -25,22 +25,37 @@ export function Detail() {
         height: 'var(--content-height)',
       }}
     >
-      <Swiper
-        spaceBetween={50}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
-        {
-          data?.images.map(({ url, id }) => (
-            <SwiperSlide key={id}>
-              <img src={url}></img>
-            </SwiperSlide>
-          ))
-        }
-      </Swiper>
-      <p>{data?.title}</p>
+      {
+        isLoading
+          ? <LoadingView />
+          : isError
+            ? <ErrorView msg={error.message} queryKey={['detail', id]} />
+            : (
+              <div>
+                <Swiper
+                  spaceBetween={30}
+                  centeredSlides
+                  autoplay={{
+                    delay: 1000,
+                  }}
+                >
+                  {
+                    data?.images.map(({ url, id }) => (
+                      <SwiperSlide key={id}>
+                        <img src={url}></img>
+                      </SwiperSlide>
+                    ))
+                  }
+                </Swiper>
+                <div className="p-5">
+                  <h1 className="text-xl">{data?.title}</h1>
+                  <h1 className="text-base font-sans mt-3 line">{data?.subtitle}</h1>
+                  <h1 className="text-base font-sans mt-3 line">{data?.time}</h1>
+                </div>
+              </div>
+              )
+      }
+
     </div>
   )
 }
