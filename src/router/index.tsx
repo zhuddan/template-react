@@ -3,6 +3,7 @@ import Home from '../pages/home'
 import About from '../pages/about'
 import { Layout } from '../layout'
 import { List } from '../pages/list'
+import { Detail } from '../pages/detail'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/list',
         element: <List />,
+      },
+      {
+        path: '/detail/:id',
+        element: <Detail />,
       },
     ],
   },
