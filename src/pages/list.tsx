@@ -16,12 +16,7 @@ export function List() {
         isLoading
           ? <LoadingView />
           : isError
-            ? (
-              <ErrorView
-                queryKey={['list']}
-                msg={error.message}
-              />
-              )
+            ? <ErrorView queryKey={['list']} msg={error.message} />
             : list?.map(item => <ListItem data={item} key={item.id} />)
       }
     </ul>

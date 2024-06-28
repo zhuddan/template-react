@@ -3,13 +3,31 @@ import { useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { LIST_DATA } from '../data'
 import { sleep } from '../utils/sleep'
-import 'swiper/css'
 import LoadingView from '../components/loading-view'
 import { ErrorView } from '../components/error-view'
+import 'swiper/css'
 
 async function getDetail(id: string) {
   await sleep(1000)
   return LIST_DATA.find(item => item.id === Number(id))
+}
+
+function DetailBanner({ data }: { data?: AppNamespace.ListItem }) {
+  return (
+    <Swiper
+      spaceBetween={30}
+      centeredSlides
+      autoplay={{
+        delay: 1000,
+      }}
+    >
+      { data?.images.map(({ url, id }) => (
+        <SwiperSlide key={id}>
+          <img src={url}></img>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )
 }
 
 export function Detail() {
@@ -30,32 +48,21 @@ export function Detail() {
           ? <LoadingView />
           : isError
             ? <ErrorView msg={error.message} queryKey={['detail', id]} />
-            : (
-              <div>
-                <Swiper
-                  spaceBetween={30}
-                  centeredSlides
-                  autoplay={{
-                    delay: 1000,
-                  }}
-                >
-                  {
-                    data?.images.map(({ url, id }) => (
-                      <SwiperSlide key={id}>
-                        <img src={url}></img>
-                      </SwiperSlide>
-                    ))
-                  }
-                </Swiper>
-                <div className="p-5">
-                  <h1 className="text-xl">{data?.title}</h1>
-                  <h1 className="text-base font-sans mt-3 line">{data?.subtitle}</h1>
-                  <h1 className="text-base font-sans mt-3 line">{data?.time}</h1>
-                </div>
-              </div>
-              )
+            : <DetailInfo data={data} />
       }
-
     </div>
+  )
+}
+
+function DetailInfo({ data }: { data?: AppNamespace.ListItem }) {
+  return (
+    <>
+      <DetailBanner data={data} />
+      <div className="p-5">
+        <h1 className="text-xl">{data?.title}</h1>
+        <h1 className="text-base font-sans mt-3 line">{data?.subtitle}</h1>
+        <h1 className="text-base font-sans mt-3 line">{data?.time}</h1>
+      </div>
+    </>
   )
 }
