@@ -1,7 +1,6 @@
 import type { QueryKey } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
 
-import { useEffect } from 'react'
 import Button from './button'
 import MdiEmoticonSadOutline from '~icons/mdi/emoticon-sad-outline'
 
