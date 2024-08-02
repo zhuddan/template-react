@@ -28,7 +28,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 ])
 
 export function RouterView() {
