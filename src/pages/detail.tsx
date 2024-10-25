@@ -21,6 +21,7 @@ function DetailBanner({ data }: { data?: AppNamespace.ListItem }) {
         delay: 1000,
       }}
     >
+      <div className="flex"></div>
       { data?.images.map(({ url, id }) => (
         <SwiperSlide key={id}>
           <img src={url}></img>

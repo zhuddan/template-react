@@ -19,3 +19,7 @@
   --nav-bar-height: 3.5rem;
   --content-height: calc(100vh - var(--nav-bar-height))
 }
+
+.btnxxxxxxxx {
+  @apply bg-red-500;
+}

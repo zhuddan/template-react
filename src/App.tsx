@@ -5,6 +5,7 @@ function App() {
   return (
     <QueryProvider>
       <RouterView />
+      <div className="bg-red-100 btnxxxxxxxx"></div>
     </QueryProvider>
   )
 }
