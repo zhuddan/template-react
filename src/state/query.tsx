@@ -2,11 +2,13 @@ import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@ta
 
 const queryCache = new QueryCache({
   onError(e) {
+    // eslint-disable-next-line no-console
     console.log(e)
   },
 })
 const mutationCache = new MutationCache({
   onError(e) {
+    // eslint-disable-next-line no-console
     console.log(e)
   },
 })

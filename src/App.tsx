@@ -1,13 +1,13 @@
 import { RouterView } from './router'
+import { Provider as BaseProvider } from './state/base'
 import { Provider as QueryProvider } from './state/query'
-import { Provider as AuthProvider } from './state/store'
 
 function App() {
   return (
     <QueryProvider>
-      <AuthProvider>
+      <BaseProvider>
         <RouterView />
-      </AuthProvider>
+      </BaseProvider>
     </QueryProvider>
   )
 }
