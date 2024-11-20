@@ -17,5 +17,8 @@ export default defineConfig(({ mode }) => {
       port: Number(env.VITE_APP_PORT),
       host: true,
     },
+    define: {
+      'process.env': {},
+    },
   }
 })

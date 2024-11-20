@@ -1,11 +1,13 @@
 import { RouterView } from './router'
 import { Provider as QueryProvider } from './state/query'
+import { Provider as AuthProvider } from './state/store'
 
 function App() {
   return (
     <QueryProvider>
-      <RouterView />
-      <div className="bg-red-100 btnxxxxxxxx"></div>
+      <AuthProvider>
+        <RouterView />
+      </AuthProvider>
     </QueryProvider>
   )
 }

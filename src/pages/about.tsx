@@ -1,6 +1,6 @@
 import Button from '../components/button'
 import Page from '../layout/pages'
-import { useAppStore } from '../store/app'
+import { useAppStore } from '../state/app'
 
 export default function Home() {
   const { reduce } = useAppStore()

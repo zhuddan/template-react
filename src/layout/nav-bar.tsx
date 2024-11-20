@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
-import { useAppStore } from '../store/app'
+import { useAppStore } from '../state/app'
 
 const menu: {
   path: string
