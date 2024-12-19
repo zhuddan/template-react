@@ -17,9 +17,12 @@ export function createResponseResultData<T extends object>(data: T) {
   })
 }
 
-export function createResponseResultError(code = 500) {
+export function createResponseResultError({
+  code = 500,
+  message = 'ERROR',
+}: Partial<ResponseResult> = {}) {
   return HttpResponse.json<ResponseResult>({
     code,
-    message: 'ERROR',
+    message,
   })
 }

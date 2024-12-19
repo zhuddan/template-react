@@ -1,10 +1,15 @@
+import type { Product } from '~/api/types/product'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useNavigate } from 'react-router-dom'
 
-export function ListItem({ data }: { data: AppNamespace.ListItem }) {
+export default function ProductItem({
+  data,
+}: {
+  data: Product
+}) {
   const navigate = useNavigate()
   function handleClick() {
-    navigate(`/detail/${data.id}`)
+    navigate(`/reference/react-query/${data.id}`)
   }
   return (
     <li

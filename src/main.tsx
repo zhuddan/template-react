@@ -15,7 +15,7 @@ async function enableMocking() {
     },
     waitUntilReady: false,
     onUnhandledRequest(request, print) {
-      if (request.url.startsWith('/api/')) {
+      if (request.url.startsWith('~/api/')) {
         print.warning()
       }
     },

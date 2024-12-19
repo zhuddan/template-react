@@ -11,6 +11,8 @@ async function delayForDemo<T>(promise: Promise<T>, t = 2000) {
 const Layout = lazy(() => import('~/layout'))
 const Home = lazy(() => import('~/pages/home'))
 const ReactQuery = lazy(() => import('~/pages/reference/react-query'))
+const ReactQueryList = lazy(() => import('~/pages/reference/react-query/list'))
+const ReactQueryDetail = lazy(() => import('~/pages/reference/react-query/detail'))
 const Zustand = lazy(() => import('~/pages/reference/zustand'))
 const Reference = lazy(() => delayForDemo(import('~/pages/reference'), 100))
 
@@ -72,11 +74,32 @@ const router = createBrowserRouter([
           },
           {
             path: 'react-query',
-            element: (
-              <SuspenseWrapper>
-                <ReactQuery />
-              </SuspenseWrapper>
-            ),
+            children: [
+              {
+                index: true,
+                element: (
+                  <SuspenseWrapper>
+                    <ReactQuery />
+                  </SuspenseWrapper>
+                ),
+              },
+              {
+                path: 'list',
+                element: (
+                  <SuspenseWrapper>
+                    <ReactQueryList />
+                  </SuspenseWrapper>
+                ),
+              },
+              {
+                path: ':id',
+                element: (
+                  <SuspenseWrapper>
+                    <ReactQueryDetail />
+                  </SuspenseWrapper>
+                ),
+              },
+            ],
           },
         ],
       },

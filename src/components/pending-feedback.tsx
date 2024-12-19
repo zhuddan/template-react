@@ -1,12 +1,15 @@
 import clsx from 'clsx'
 import { IconLoading } from './icons'
 
-interface PendingFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface PendingFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {
+  title?: string
+}
 export default function PendingFeedback(props: PendingFeedbackProps) {
   const {
     className,
     style,
     children,
+    title = 'loading...',
     ...rest
   } = props
   return (
@@ -24,7 +27,7 @@ export default function PendingFeedback(props: PendingFeedbackProps) {
         className="animate-spin"
       />
       {
-        children || <p className="mt-4 font-bold text-primary">loading...</p>
+        children || <p className="mt-4 font-bold text-primary">{title}</p>
       }
     </div>
   )

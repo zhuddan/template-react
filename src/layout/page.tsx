@@ -29,7 +29,7 @@ export function ReferencePage({
   children: ReactNode
 }) {
   return (
-    <PageWrapper className="py-4">
+    <PageWrapper>
       <h1>
         <a
           className="ml-2 hover:cursor-pointer hover:text-primary flex text-lg items-center"
@@ -42,7 +42,7 @@ export function ReferencePage({
           <LineMdLink className="text-sm"></LineMdLink>
         </a>
       </h1>
-      <div className="border rounded-md p-4 flex items-center mt-4 mx-4">
+      <div className="border rounded-md p-2 m-2 flex items-center mt-4 ">
         {children}
       </div>
     </PageWrapper>

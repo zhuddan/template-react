@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && bumpp && vite build",
+    "check": "tsc ",
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "bumpp": "bumpp"
