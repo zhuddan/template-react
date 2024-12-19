@@ -1,11 +1,11 @@
-import { RouterView } from './router'
+import { lazy } from 'react'
 import { Provider as QueryProvider } from './state/query'
 
+const RouterRoot = lazy(() => import('./router'))
 function App() {
   return (
     <QueryProvider>
-      <RouterView />
-      <div className="bg-red-100 btnxxxxxxxx"></div>
+      <RouterRoot />
     </QueryProvider>
   )
 }
