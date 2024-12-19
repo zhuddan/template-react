@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ErrorFeedback from '~/components/error-feedback'
 import PendingFeedback from '~/components/pending-feedback'
 import { ReactQueryPage } from '~/layout/page'
