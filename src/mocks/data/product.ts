@@ -9,7 +9,7 @@ export const products = Array.from({
     title: faker.commerce.product(),
     subtitle: faker.commerce.productDescription(),
     time: faker.date.birthdate().toLocaleDateString().replace(/\//g, '-'),
-    id: index,
+    id: index + 10000,
     images: Array.from({ length: 3 }).map((_, id) => {
       return {
         url: faker.image.urlLoremFlickr({ category: 'food' }),

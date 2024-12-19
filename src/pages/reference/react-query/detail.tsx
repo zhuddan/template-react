@@ -1,36 +1,38 @@
 import { useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import ErrorFeedback from '~/components/error-feedback'
 import PendingFeedback from '~/components/pending-feedback'
-import ProductItem from '~/components/product-item'
-import { ReferencePage } from '~/layout/page'
+import { ReactQueryPage } from '~/layout/page'
 import { useProductDetail } from '~/state/queries/product'
-import links from '~/utils/reference'
 
 export default function Page() {
-  const item = links[1]
-  const [searchParams] = useSearchParams()
+  const params = useParams()
   const id = useMemo(() => {
-    const id = Number(searchParams.get('id'))
+    const id = Number(params.id)
     return Number.isNaN(id) ? undefined : id
-  }, [searchParams])
-  const { data, isPending, isError, refetch } = useProductDetail(id)
+  }, [params])
+
+  const { data, isPending, isError, refetch, error } = useProductDetail(id)
   return (
-    <ReferencePage reference={item}>
+    <ReactQueryPage>
       {
         isPending
           ? <PendingFeedback title="Load product list" />
           : isError
-            ? <ErrorFeedback onRetry={refetch} />
+            ? <ErrorFeedback onRetry={refetch} error={error} />
             : (
                 <ul>
-                  {
-                    JSON.stringify(data)
-                  }
+                  <pre>
+                    <code className="text-wrap">
+                      {
+                        JSON.stringify(data, null, 2)
+                      }
+                    </code>
+                  </pre>
                 </ul>
               )
       }
 
-    </ReferencePage>
+    </ReactQueryPage>
   )
 }

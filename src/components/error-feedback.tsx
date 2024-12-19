@@ -3,8 +3,8 @@ import Button from './button'
 import { MaterialSymbolsLightErrorOutline } from './icons'
 
 interface ErrorFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {
-  title?: string
   onRetry?: () => void
+  error?: Error
 }
 
 export default function ErrorFeedback(props: ErrorFeedbackProps) {
@@ -13,7 +13,7 @@ export default function ErrorFeedback(props: ErrorFeedbackProps) {
     style,
     children,
     onRetry,
-    title = 'loading...',
+    error,
     ...rest
   } = props
 
@@ -30,16 +30,15 @@ export default function ErrorFeedback(props: ErrorFeedbackProps) {
         ...rest
       }
     >
-      <MaterialSymbolsLightErrorOutline color="#087ea4" fontSize={50} />
+      <MaterialSymbolsLightErrorOutline color="#087ea4" fontSize={60} />
       {
         children || (
           <>
-            <p className="mt-4 font-bold text-primary">{title}</p>
+            <p className=" font-bold text-primary">{error?.message}</p>
             <Button onClick={handleClick} className="mt-4">重试</Button>
           </>
         )
       }
-
     </div>
   )
 }

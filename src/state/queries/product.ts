@@ -19,9 +19,12 @@ export function useProductDetail(id?: number) {
     queryKey: [API_URLS.PRODUCT_DETAIL, id],
     queryFn: async () => {
       await sleep(500)
-      return getProductDetail(id!)
+      const response = await getProductDetail(id!)
+      if (!response.data) {
+        throw new Error(response.message)
+      }
+      return response.data
     },
-    select: response => response.data,
     enabled: !!id,
   })
 }

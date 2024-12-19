@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { Reference } from '~/utils/reference'
 import clsx from 'clsx'
 import { LineMdLink } from '~/components/icons'
+import reference from '~/utils/reference'
 
 interface PageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -30,21 +31,36 @@ export function ReferencePage({
 }) {
   return (
     <PageWrapper>
-      <h1>
-        <a
-          className="ml-2 hover:cursor-pointer hover:text-primary flex text-lg items-center"
-          href={item.href}
-          title={item.href}
-          target="_blank"
-        >
-          {item.title}
+      <div className="overflow-hidden">
+        <h1 className="m-4 text-xl ">
+          <a
+            className="hover:cursor-pointer hover:text-primary flex  items-center"
+            href={item.href}
+            title={item.href}
+            target="_blank"
+          >
+            {item.title}
 
-          <LineMdLink className="text-sm"></LineMdLink>
-        </a>
-      </h1>
-      <div className="border rounded-md p-2 m-2 flex items-center mt-4 ">
+            <LineMdLink className="text-sm"></LineMdLink>
+          </a>
+        </h1>
+      </div>
+
+      <div className="border rounded-md p-2 m-2 flex items-center">
         {children}
       </div>
     </PageWrapper>
+  )
+}
+
+export function ReactQueryPage({
+  children,
+}: {
+  children: ReactNode
+}) {
+  return (
+    <ReferencePage reference={reference[1]}>
+      {children}
+    </ReferencePage>
   )
 }
