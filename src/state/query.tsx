@@ -1,4 +1,10 @@
-import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {
+  MutationCache,
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import React from 'react'
 
 const queryCache = new QueryCache({
   onError(e) {
@@ -24,7 +30,7 @@ const queryClient = new QueryClient({
     },
   },
 })
-export function Provider({ children }: React.PropsWithChildren) {
+export function Provider({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}

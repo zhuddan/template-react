@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
-import { useAppStore } from '../state/app'
 
 const menu: {
   path: string
@@ -21,7 +20,6 @@ const menu: {
 ]
 export default function NavBar() {
   const { pathname } = useLocation()
-  const { count } = useAppStore()
   return (
     <nav
       className="shadow bg-white flex items-center px-4 fixed top-0 left-0 right-0"
@@ -48,9 +46,6 @@ export default function NavBar() {
             </li>
           ))
         }
-        <li className="ml-2 bg-primary text-white rounded-full size-8 flex items-center justify-center">
-          {count}
-        </li>
       </ul>
     </nav>
   )

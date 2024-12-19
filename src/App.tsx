@@ -1,8 +1,6 @@
-// import { RootRooter } from './routes'
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
+import RootRooter from './routes'
 import { Provider as QueryProvider } from './state/query'
-
-const RootRooter = lazy(() => import('~/routes'))
 
 function App() {
   return (

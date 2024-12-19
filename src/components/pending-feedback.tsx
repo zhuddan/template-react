@@ -1,9 +1,7 @@
 import clsx from 'clsx'
 import { IconLoading } from './icons'
 
-interface PendingFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {
-
-}
+interface PendingFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {}
 export default function PendingFeedback(props: PendingFeedbackProps) {
   const {
     className,
@@ -13,11 +11,9 @@ export default function PendingFeedback(props: PendingFeedbackProps) {
   } = props
   return (
     <div
-      className={clsx('w-full h-52 flex items-center justify-center flex-col', className)}
+      className={clsx('size-full flex items-center justify-center flex-col', className)}
       style={
-        style ?? {
-          height: 'var(--content-height)',
-        }
+        style
       }
       {
         ...rest
