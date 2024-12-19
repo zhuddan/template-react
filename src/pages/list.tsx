@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import LoadingView from '../components/loading-view'
 import { ErrorView } from '../components/error-view'
-import { getList } from '../server'
 import { ListItem } from '../components/list-item'
+import LoadingView from '../components/loading-view'
+import { getList } from '../server'
 
 export function List() {
   const { data: list, isLoading, isError, error } = useQuery({

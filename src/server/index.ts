@@ -1,6 +1,6 @@
 import { random } from 'lodash-es'
-import { sleep } from '../utils/sleep'
 import { LIST_DATA } from '../data'
+import { sleep } from '../utils/sleep'
 
 export async function getList() {
   await sleep(100)
