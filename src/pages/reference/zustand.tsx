@@ -7,11 +7,9 @@ export default function Page() {
   const item = links[0]
   return (
     <ReferencePage reference={item}>
-      <div className="border rounded-md mt-8 p-4 flex  items-center">
-        <Reduce />
-        <Result />
-        <Increase />
-      </div>
+      <Reduce />
+      <Result />
+      <Increase />
     </ReferencePage>
   )
 }

@@ -38,10 +38,13 @@ export function ReferencePage({
           target="_blank"
         >
           {item.title}
+
           <LineMdLink className="text-sm"></LineMdLink>
         </a>
       </h1>
-      {children}
+      <div className="border rounded-md p-4 flex items-center mt-4 mx-4">
+        {children}
+      </div>
     </PageWrapper>
   )
 }

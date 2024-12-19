@@ -1,17 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { worker } from './mocks/browser'
 
 import './tailwind.css'
 
-// 开发环境下启动 MSW
-if (import.meta.env.MODE === 'development') {
-  worker.start()
+async function enableMocking() {
+  if (import.meta.env.PROD) {
+    return
+  }
+  const { worker } = await import('./mocks/browser')
+  return worker.start({
+    serviceWorker: {
+      url: '/mockServiceWorker.js',
+    },
+    waitUntilReady: false,
+    onUnhandledRequest(request, print) {
+      if (request.url.startsWith('/api/')) {
+        print.warning()
+      }
+    },
+  })
 }
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+enableMocking().then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  )
+})

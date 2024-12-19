@@ -1,4 +1,4 @@
-export interface ListItem {
+export interface Product {
   cover: string
   title: string
   images: { url: string, id: number }[]

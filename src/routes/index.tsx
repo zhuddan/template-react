@@ -10,6 +10,7 @@ async function delayForDemo<T>(promise: Promise<T>, t = 2000) {
 
 const Layout = lazy(() => import('~/layout'))
 const Home = lazy(() => import('~/pages/home'))
+const ReactQuery = lazy(() => import('~/pages/reference/react-query'))
 const Zustand = lazy(() => import('~/pages/reference/zustand'))
 const Reference = lazy(() => delayForDemo(import('~/pages/reference'), 100))
 
@@ -66,6 +67,14 @@ const router = createBrowserRouter([
             element: (
               <SuspenseWrapper>
                 <Zustand />
+              </SuspenseWrapper>
+            ),
+          },
+          {
+            path: 'react-query',
+            element: (
+              <SuspenseWrapper>
+                <ReactQuery />
               </SuspenseWrapper>
             ),
           },

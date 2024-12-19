@@ -3,7 +3,7 @@ import { LineMdLink } from '~/components/icons'
 import PageWrapper from '~/layout/page'
 import links from '~/utils/reference'
 
-export default function Home() {
+export default function Page() {
   return (
     <PageWrapper className="flex justify-center flex-col items-center">
       <ul className="w-[200px] flex flex-col items-center">
