@@ -10,12 +10,8 @@ const menu: {
     title: 'Home',
   },
   {
-    path: '/about',
-    title: 'About',
-  },
-  {
-    path: '/list',
-    title: 'List',
+    path: '/reference',
+    title: 'Reference',
   },
 ]
 export default function NavBar() {

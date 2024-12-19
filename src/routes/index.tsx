@@ -9,9 +9,9 @@ async function delayForDemo<T>(promise: Promise<T>, t = 2000) {
 }
 
 const Layout = lazy(() => import('~/layout'))
-const About = lazy(() => delayForDemo(import('~/pages/about'), 1000))
 const Home = lazy(() => import('~/pages/home'))
-const Zustand = lazy(() => import('~/pages/libs/zustand'))
+const Zustand = lazy(() => import('~/pages/reference/zustand'))
+const Reference = lazy(() => delayForDemo(import('~/pages/reference'), 100))
 
 function SuspenseWrapper({
   children,
@@ -51,16 +51,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/about',
-        element: (
-          <SuspenseWrapper>
-            <About />
-          </SuspenseWrapper>
-        ),
-      },
-      {
-        path: '/libs',
+        path: '/reference',
         children: [
+          {
+            index: true,
+            element: (
+              <SuspenseWrapper>
+                <Reference />
+              </SuspenseWrapper>
+            ),
+          },
           {
             path: 'zustand',
             element: (
@@ -70,7 +70,6 @@ const router = createBrowserRouter([
             ),
           },
         ],
-
       },
     ],
   },

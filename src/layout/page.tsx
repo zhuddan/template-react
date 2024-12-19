@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { Reference } from '~/utils/references'
+import type { Reference } from '~/utils/reference'
 import clsx from 'clsx'
 import { LineMdLink } from '~/components/icons'
 

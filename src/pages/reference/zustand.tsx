@@ -1,7 +1,7 @@
 import Button from '~/components/button'
 import { ReferencePage } from '~/layout/page'
 import { useAppStore } from '~/state/app'
-import links from '~/utils/references'
+import links from '~/utils/reference'
 
 export default function Page() {
   const item = links[0]
