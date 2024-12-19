@@ -1,6 +1,6 @@
-import { defineConfig, loadEnv } from 'vite'
 import React from '@vitejs/plugin-react'
 import Icons from 'unplugin-icons/vite'
+import { defineConfig, loadEnv } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
