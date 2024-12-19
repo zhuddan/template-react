@@ -50,5 +50,10 @@ export default defineConfig(({ mode }) => {
         '~/': `${path.resolve(__dirname, 'src')}/`,
       },
     },
+    build: {
+      rollupOptions: {
+        external: ['/mocks/*'], // 排除 mocks 目录下的所有文件
+      },
+    },
   }
 })
