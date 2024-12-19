@@ -1,14 +1,33 @@
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import About from '~/pages/about'
-import Home from '~/pages/home'
+import PendingFeedback from '~/components/pending-feedback'
 
-const Layout = lazy(() => import('~/layout'))
+function delayForDemo<T>(promise: Promise<T>) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000)
+  }).then(() => promise)
+}
+
+const About = lazy(() => delayForDemo(import('~/pages/about')))
+const Home = lazy(() => delayForDemo(import('~/pages/home')))
+const Layout = lazy(() => delayForDemo(import('~/layout')))
+
+function SuspenseWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={<PendingFeedback />}>
+      {children}
+    </Suspense>
+  )
+}
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <SuspenseWrapper>
+        <Layout />
+      </SuspenseWrapper>
+    ),
     children: [
       {
         path: '/',
