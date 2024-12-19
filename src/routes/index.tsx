@@ -4,7 +4,7 @@ import PendingFeedback from '~/components/pending-feedback'
 
 function delayForDemo<T>(promise: Promise<T>) {
   return new Promise((resolve) => {
-    setTimeout(resolve, 2000)
+    setTimeout(resolve, 2000 * 10)
   }).then(() => promise)
 }
 
