@@ -1,4 +1,4 @@
-import ReactLoading from 'react-loading'
+import { IconLoading } from './icons'
 
 export default function LoadingView() {
   return (
@@ -8,7 +8,7 @@ export default function LoadingView() {
         height: 'var(--content-height)',
       }}
     >
-      <ReactLoading
+      <IconLoading
         color="#087ea4"
         type="spin"
       />

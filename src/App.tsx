@@ -1,4 +1,4 @@
-import { RootRooter } from './router'
+import { RootRooter } from './routes'
 import { Provider as QueryProvider } from './state/query'
 
 function App() {
