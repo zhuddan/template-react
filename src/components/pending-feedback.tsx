@@ -1,6 +1,6 @@
 import { IconLoading } from './icons'
 
-export default function LoadingView() {
+export default function PendingFeedback() {
   return (
     <div
       className="w-full h-52 flex items-center justify-center flex-col"

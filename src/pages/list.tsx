@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { ErrorView } from '../components/error-view'
 import { ListItem } from '../components/list-item'
-import LoadingView from '../components/loading-view'
+import LoadingView from '../components/pending-feedback'
 import { getList } from '../server'
 
 export function List() {

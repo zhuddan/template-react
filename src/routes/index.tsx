@@ -1,9 +1,9 @@
+import { lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Layout } from '../layout'
-import About from '../pages/about'
-import { Detail } from '../pages/detail'
-import Home from '../pages/home'
-import { List } from '../pages/list'
+import About from '~/pages/about'
+import Home from '~/pages/home'
+
+const Layout = lazy(() => import('~/layout'))
 
 const router = createBrowserRouter([
   {
@@ -18,14 +18,6 @@ const router = createBrowserRouter([
         path: '/about',
         element: <About />,
       },
-      {
-        path: '/list',
-        element: <List />,
-      },
-      {
-        path: '/detail/:id',
-        element: <Detail />,
-      },
     ],
   },
 ], {
@@ -33,6 +25,6 @@ const router = createBrowserRouter([
   },
 })
 
-export function RootRooter() {
+export default function RootRooter() {
   return <RouterProvider router={router} />
 }
