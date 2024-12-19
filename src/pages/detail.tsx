@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { ErrorView } from '../components/error-view'
+import LoadingView from '../components/loading-view'
 import { LIST_DATA } from '../data'
 import { sleep } from '../utils/sleep'
-import LoadingView from '../components/loading-view'
-import { ErrorView } from '../components/error-view'
 import 'swiper/css'
 
 async function getDetail(id: string) {

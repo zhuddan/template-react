@@ -1,8 +1,8 @@
 import type { QueryKey } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
 
-import Button from './button'
 import MdiEmoticonSadOutline from '~icons/mdi/emoticon-sad-outline'
+import Button from './button'
 
 export function ErrorView({ msg, queryKey }: {
   msg?: string

@@ -14,10 +14,9 @@
   }
 }
 
-
-:root{
+:root {
   --nav-bar-height: 3.5rem;
-  --content-height: calc(100vh - var(--nav-bar-height))
+  --content-height: calc(100vh - var(--nav-bar-height));
 }
 
 .btnxxxxxxxx {
