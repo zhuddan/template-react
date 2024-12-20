@@ -7,7 +7,7 @@ export function useProductList() {
   return useQuery({
     queryKey: [API_URLS.PRODUCT_LIST],
     queryFn: async () => {
-      await sleep(500)
+      await sleep(500 * 1)
       return getProductList()
     },
     select: response => response.data,

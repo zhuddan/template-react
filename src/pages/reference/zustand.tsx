@@ -1,16 +1,23 @@
+import Breadcrumbs from '~/components/breadcrumbs'
 import Button from '~/components/button'
-import { ReferencePage } from '~/layout/page'
+import PageWrapper from '~/layout/page'
 import { useAppStore } from '~/state/app'
-import links from '~/utils/reference'
 
 export default function Page() {
-  const item = links[0]
   return (
-    <ReferencePage reference={item}>
-      <Reduce />
-      <Result />
-      <Increase />
-    </ReferencePage>
+    <PageWrapper>
+      <Breadcrumbs
+        items={[
+          { name: 'reference', link: '/reference' },
+          { name: 'zustand', link: '/reference/zustand' },
+        ]}
+      />
+      <div className="mt-4 flex items-center">
+        <Reduce />
+        <Result />
+        <Increase />
+      </div>
+    </PageWrapper>
   )
 }
 

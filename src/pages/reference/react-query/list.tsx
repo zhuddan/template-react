@@ -1,18 +1,31 @@
+import Breadcrumbs from '~/components/breadcrumbs'
 import ErrorFeedback from '~/components/error-feedback'
 import PendingFeedback from '~/components/pending-feedback'
 import ProductItem from '~/components/product-item'
-import { ReferencePage } from '~/layout/page'
+import PageWrapper from '~/layout/page'
 import { useProductList } from '~/state/queries/product'
-import links from '~/utils/reference'
 
 export default function Page() {
-  const item = links[1]
   const { data, isPending, isError, refetch } = useProductList()
   return (
-    <ReferencePage reference={item}>
+    <PageWrapper>
+      <Breadcrumbs
+        items={[
+          { name: 'reference', link: '/reference' },
+          { name: 'react-query', link: '/reference/react-query' },
+          { name: 'list', link: '/reference/react-query/list' },
+        ]}
+      />
       {
         isPending
-          ? <PendingFeedback title="Load product list" />
+          ? (
+              <PendingFeedback
+                title="Load product list"
+                style={{
+                  height: 'calc(100% - 2rem - 24px)',
+                }}
+              />
+            )
           : isError
             ? <ErrorFeedback onRetry={refetch} />
             : (
@@ -26,6 +39,6 @@ export default function Page() {
               )
       }
 
-    </ReferencePage>
+    </PageWrapper>
   )
 }

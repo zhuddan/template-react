@@ -2,7 +2,7 @@ import type { Product } from '~/api/types/product'
 import { fakerZH_CN as faker } from '@faker-js/faker'
 
 export const products = Array.from({
-  length: 10,
+  length: 6,
 }, (_, index) => {
   const item: Product = {
     cover: faker.image.urlLoremFlickr({ category: 'food' }),
