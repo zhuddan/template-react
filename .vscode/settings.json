@@ -59,6 +59,6 @@
   "eslint.quiet": false,
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "explorer.fileNesting.patterns": {
-		"vite-env.d.ts": "*.d.ts",
+    "vite-env.d.ts": "*.d.ts"
   }
 }
