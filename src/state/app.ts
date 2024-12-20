@@ -1,9 +1,22 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
+export interface AppState {
+  count: number
+}
+
+export interface AppActions {
+  increase: () => void
+  reduce: () => void
+}
+
+export type AppStore = AppState & AppActions
+
+export type AppStoreSetFunction = (set: AppStore) => AppStore | Partial<AppStore>
+
 // persist
 
-export const useAppStore = create<AppNamespace.AppStore>()(
+export const useAppStore = create<AppStore>()(
   devtools(
     // persist(
     (set, get) => ({
