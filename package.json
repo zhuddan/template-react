@@ -20,7 +20,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-lazy-load-image-component": "^1.6.3",
-    "react-router-dom": "^6.28.0",
+    "react-router-dom": "^7.0.2",
     "react-use": "^17.6.0",
     "swiper": "^11.1.15",
     "zustand": "^4.5.5"
