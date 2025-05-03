@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import Button from './button'
-import { MaterialSymbolsLightErrorOutline } from './icons'
+import { Info } from './icons'
 
 interface ErrorFeedbackProps extends React.HTMLAttributes<HTMLDivElement> {
   onRetry?: () => void
@@ -30,7 +30,7 @@ export default function ErrorFeedback(props: ErrorFeedbackProps) {
         ...rest
       }
     >
-      <MaterialSymbolsLightErrorOutline color="#087ea4" fontSize={60} />
+      <Info color="#087ea4" fontSize={60} />
       {
         children || (
           <>

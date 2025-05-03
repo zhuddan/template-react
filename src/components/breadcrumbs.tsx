@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Fragment, useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { IconoirSlash } from './icons'
+import { Slash } from './icons'
 
 interface BreadcrumbsItem {
   name: string
@@ -33,7 +33,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
               {item.name}
             </Link>
             {
-              index !== items.length - 1 && <IconoirSlash />
+              index !== items.length - 1 && <Slash />
             }
           </Fragment>
         )
