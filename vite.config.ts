@@ -1,15 +1,16 @@
 import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
 import React from '@vitejs/plugin-react'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import Icons from 'unplugin-icons/vite'
 import { defineConfig, loadEnv } from 'vite'
-
 import { vitePluginGenerateSvgIcons } from './vite-plugins/vite-plugin-generate-svg-icons'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, './')
   return {
     plugins: [
+      tailwindcss(),
       React(),
       Icons({
         compiler: 'jsx',
