@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import PendingFeedback from '~/components/pending-feedback'
+
 import { sleep } from '~/utils/sleep'
 
 async function delayForDemo<T>(promise: Promise<T>, t = 2000) {
@@ -24,13 +25,7 @@ function SuspenseWrapper({
   children: React.ReactNode
 }) {
   return (
-    <Suspense
-      fallback={(
-        <PendingFeedback
-          className={className}
-        />
-      )}
-    >
+    <Suspense fallback={(<PendingFeedback className={className} />)}>
       {children}
     </Suspense>
   )
@@ -40,10 +35,11 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <SuspenseWrapper className="h-[100vh]">
+      <SuspenseWrapper className="h-screen">
         <Layout />
       </SuspenseWrapper>
     ),
+    errorElement: <div>Something went wrong</div>,
     children: [
       {
         path: '/',
@@ -92,7 +88,7 @@ const router = createBrowserRouter([
                 ),
               },
               {
-                path: ':id',
+                path: 'detai0l/:id',
                 element: (
                   <SuspenseWrapper>
                     <ReactQueryDetail />
@@ -105,11 +101,17 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '*',
+    element: <div>Page Not Found</div>,
+  },
 ], {
   future: {
   },
 })
 
-export default function RootRooter() {
-  return <RouterProvider router={router} />
+export default function RootRouter() {
+  return (
+    <RouterProvider router={router} />
+  )
 }

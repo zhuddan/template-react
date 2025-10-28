@@ -13,7 +13,6 @@ async function enableMocking() {
     serviceWorker: {
       url: '/mockServiceWorker.js',
     },
-    waitUntilReady: false,
     onUnhandledRequest(request, print) {
       if (request.url.startsWith('~/api/')) {
         print.warning()
