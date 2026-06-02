@@ -1,0 +1,47 @@
+{
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "mdx",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  // tailwindcss
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // "postman.settings.dotenv-detection-notification-visibility": false,
+  // "editor.quickSuggestions": {
+  //   "strings": "on"
+  // },
+  "tailwindCSS.hovers": true,
+  "tailwindCSS.showPixelEquivalents": true,
+  "tailwindCSS.experimental.configFile": "src/globals.css",
+  "tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "js/ts.preferences.autoImportFileExcludePatterns": [
+    "lucide-react"
+  ],
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore"
+}
