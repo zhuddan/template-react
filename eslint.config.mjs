@@ -26,6 +26,7 @@ export default defineConfig([
     '.heroui-docs',
     'runtime',
     'bun.lock',
+    'public',
   ]),
 
 
@@ -108,7 +109,13 @@ export default defineConfig([
       // 禁止行尾分号
       '@stylistic/semi': ['error', 'never'],
       // 多行结构（数组、对象、参数等）的最后一项后必须加尾随逗号，方便 git diff
-      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/comma-dangle': ['error', {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      }],
       // 对象花括号内部加空格：{ a: 1 }
       '@stylistic/object-curly-spacing': ['error', 'always'],
       // 数组方括号内部不加空格：[1, 2]
@@ -325,5 +332,11 @@ export default defineConfig([
     },
   },
 
-
+  // shadcn/ui 组件文件会导出非组件内容（如类型、工具函数），关闭此规则
+  {
+    files: ['src/components/ui/**/*.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])
